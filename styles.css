@@ -1,0 +1,137 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
+body {
+    background-color: #f3f4f6;
+    font-family: "Pixelify Sans", sans-serif; /* สั่งให้ทั้งหน้าเว็บหันมาใช้ฟอนต์ Kanit */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.min-h-screen { min-height: 100vh; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.p-4 { padding: 1rem; }
+.w-12 { width: 3rem; }
+.h-12 { height: 3rem; }
+
+.student-card {
+    width: 100%; max-width: 650px; background: #e8eff5;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+    background: #2c5d8f; padding: 12px 20px;
+    display: flex; align-items: center; gap: 15px;
+}
+.logo { flex-shrink: 0; }
+.university-name { color: white; font-size: 18px; font-weight: 400; text-transform: uppercase; }
+.curve-container { margin-top: -1px; }
+.curve-svg { width: 100%; height: 50px; display: block; }
+.content {
+    display: flex;
+    gap: 30px;
+    
+    /* ให้นักเรียนพิมพ์แก้ไขหรือเพิ่มบรรทัดนี้ลงไป */
+    padding: 25px 35px 35px 35px; /* เว้นด้านบน 25px, ขวา-ล่าง-ซ้าย ด้านละ 35px */
+}
+.photo-section { flex-shrink: 0; }
+
+/* ---------------------------------------------------- */
+/* จุดสำคัญ: กล่องรูปภาพโปรไฟล์ (ที่นักเรียนต้องปรับแก้ในข้อ 6) */
+.photo-frame {
+    width: 180px;
+    height: 220px;
+    border: 3px solid #2c5d8f;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+.student-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+}
+/* ---------------------------------------------------- */
+
+.info-section { flex: 1; }
+.title { color: #2c5d8f; font-size: 32px; font-weight: 700; margin-bottom: 20px; font-style: italic; }
+.info-grid { display: flex; flex-direction: column; gap: 8px; }
+.info-row { display: grid; grid-template-columns: 110px 20px 1fr; align-items: baseline; }
+.label { color: #2c5d8f; font-weight: 600; font-size: 16px; }
+.colon { color: #2c5d8f; font-weight: 600; }
+.value { color: #5a8bb8; font-size: 16px; }
+.barcode-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    
+    /* ให้นักเรียนพิมพ์เพิ่มบรรทัดนี้ลงไปด้านล่างสุดของคลาสนี้ */
+    margin-bottom: 20px; /* ผลักดันวัตถุด้านล่าง (ปุ่มลิงก์) ออกไปด้านนอกกล่อง 20px */
+}
+
+.barcode { background: white; padding: 5px; }
+.footer { background: #2c5d8f; height: 25px; }
+
+/* ==========================================
+   Dark Mode Custom Styling
+   ========================================== */
+body.dark-mode {
+	background-color: #0f172a;
+	color: #f8fafc;
+}
+.dark-mode .student-card {
+	background: #1e293b;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+ 
+.dark-mode .title,
+.dark-mode .label,
+.dark-mode .colon {
+	color: #38bdf8;
+}
+ 
+.dark-mode .value {
+	color: #e2e8f0;
+}
+/* ==========================================
+   Flexible Images & Basic Resizing
+   ========================================== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* ==========================================
+   Responsive Web Design for Mobile Devices
+   ========================================== */
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .info-section {
+        text-align: center;
+        width: 100%;
+    }
+
+    .info-row {
+        grid-template-columns: 100px 15px 1fr;
+        text-align: left;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .university-name {
+        font-size: 14px;
+    }
+}
